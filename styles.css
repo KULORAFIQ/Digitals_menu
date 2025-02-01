@@ -1,0 +1,1112 @@
+/* ANIMASI DASAR */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* BODY DAN LAYOUT */
+/* Tambahkan background gambar ke body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('assets/img/background/back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Agar background tetap saat scroll */
+    position: relative;
+    z-index: 1;
+}
+
+/* Overlay gelap untuk memperjelas konten di atas background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay hitam transparan */
+    z-index: -1; /* Agar overlay berada di bawah konten */
+}
+
+/* Pastikan elemen lainnya berada di atas background */
+header, .menu-grid, footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+header {
+    background-color: #1e1e1e;
+    color: rgb(232, 193, 0);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Outline dan animasi halus elegan pada teks judul */
+.title-outline-super-luxury {
+    color: #FFD700; /* Gold color */
+    font-family: 'calibri', cursive; /* Elegant script font */
+    font-size: 1rem; /* Adjust size as needed */
+    font-weight: 700; /* Bold for emphasis */
+    letter-spacing: 2px; /* Spacing between letters */
+    text-transform: uppercase; /* Uppercase for a bold statement */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Black shadow for depth */
+    border-bottom: 2px solid #FFD700; /* Optional gold border */
+    padding-bottom: 10px; /* Space below text */
+    margin-bottom: 20px; /* Spacing for separation */
+    text-align: center; /* Center align for emphasis */
+    display: inline-block; /* Keeps border under text only */
+    background: linear-gradient(transparent 70%, rgba(255, 215, 0, 0.2) 100%); /* Subtle gold highlight */
+
+
+    font-size: 20px;    
+    color: rgb(235, 185, 4); /* Warna teks */
+    text-align: center;
+    display: inline-block;
+
+    /* Animasi super halus */
+    animation: superLuxuryFloat 10s ease-in-out infinite; /* Durasi 10 detik */
+    opacity: 0.95; /* Transparansi sedikit untuk tampilan lebih lembut */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+
+/* Keyframes untuk animasi super halus */
+@keyframes superLuxuryFloat {
+    0% {
+        transform: translateY(0); /* Mulai dari posisi awal */
+        opacity: 0.95; /* Sedikit transparansi */
+    }
+    50% {
+        transform: translateY(-5px); /* Gerakan naik yang sangat halus */
+        opacity: 1; /* Opacity penuh */
+    }
+    100% {
+        transform: translateY(0); /* Kembali ke posisi awal */
+        opacity: 0.95; /* Kembali ke sedikit transparan */
+    }
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.logo {
+    width: 80px; /* Ukuran logo */
+    height: auto;
+    margin-right: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* HAMBURGER MENU */
+/* HAMBURGER MENU */
+/* Pastikan hamburger dan menu berada pada posisi dan layer yang berbeda */
+.hamburger {
+    display: flex; /* Pastikan tombol hamburger tetap terlihat */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 9999; /* Atur z-index agar berada di atas menu navbar */
+    position: relative; /* Agar tombol tetap di atas */
+}
+
+/* Saat tombol hamburger aktif, pastikan posisi tanda X di atas navbar */
+.hamburger.active {
+    z-index: 9999; /* Z-index lebih tinggi untuk menampilkan tanda X di atas menu */
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: rgb(218, 196, 5);
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navbar settings */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    z-index: 1; /* Pastikan navbar memiliki z-index lebih rendah dari tombol hamburger */
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none; /* Navbar disembunyikan di layar kecil */
+        background-color: #000000;
+        width: 100%;
+        position: absolute;
+        top: 1px; /* Di bawah header */
+        left: 0;
+        padding: 20px 0;
+        z-index: 1; /* Z-index lebih rendah dari tombol hamburger */
+    }
+
+    nav ul.show {
+        display: flex; /* Tampilkan menu ketika aktif */
+    }
+}
+
+
+
+/* MENU NAVBAR */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Menambahkan efek gulir halus untuk semua link */
+}
+
+nav ul li a {
+    color: white; /* Warna teks */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul a{
+    color: white; /* Warna teks */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease; 
+}
+
+/* Warna berubah saat di-hover */
+nav ul li a:hover {
+    color: #ffcc00;
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul a:hover {
+    color: #ffcc00;
+    background-color: #444;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none; /* Navbar disembunyikan di layar kecil */
+        background-color: #000000;
+        width: 100%;
+        position: absolute;
+        top: 1px; /* Di bawah header */
+        left: 0;
+        padding: 20px 0;
+    }
+
+    nav ul.show {
+        display: flex; /* Tampilkan menu ketika aktif */
+    }
+
+    .hamburger {
+        display: flex; /* Tampilkan hamburger menu di layar kecil */
+    }
+
+    /* Animasi Hamburger berubah saat di-klik */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+#menu {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+/* Mengubah warna teks judul pada setiap menu section menjadi putih */
+.menu-section h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    text-align: left;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-out;
+    color: white; /* Mengubah warna teks judul menjadi putih */
+}
+
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* TILE MENU ITEM */
+.menu-item {
+    background-color: rgba(231, 226, 226, 0.673);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: zoomIn 1s ease-out;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgb(252, 252, 252);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.menu-item h3 {
+    margin: 0;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    margin: 0 0 10px;
+    font-size: 0.80em;
+    color: #3b3939;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #950000;
+}
+
+/* FOOTER */
+/* Atur styling untuk footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Jika ada padding untuk body, agar footer tidak menutupi konten */
+body {
+    margin: 0;
+    padding-bottom: 60px; /* Pastikan padding bottom sesuai dengan tinggi footer */
+}
+
+
+/* ANIMASI GAMBAR HOVER */
+.menu-item img:hover {
+    transform: scale(1.1);
+}
+
+/* Styling khusus untuk memperkecil gambar */
+img.small-photo {
+    width: 250px; /* Atur lebar gambar */
+    height: auto; /* Biarkan tinggi menyesuaikan secara proporsional */
+    display: block; /* Untuk menghindari masalah layout */
+    margin: 0 auto; /* Agar gambar berada di tengah */
+    transition: transform 0.3s ease-in-out; /* Untuk transisi halus saat hover */
+}
+
+/* Menambahkan efek zoom-in saat di-hover */
+img.small-photo:hover {
+    transform: scale(1.1); /* Sedikit membesar saat kursor diarahkan */
+}
+
+/* Styling untuk Favorite Menu Section */
+#favorite-menu h2 {
+    color: white; /* Mengubah warna teks menjadi putih */
+}
+
+#favorite-menu {
+    max-width: 800px; /* Set a max width for the menu */
+    margin: auto; /* Center the slider */
+}
+
+.slider-container {
+    overflow: hidden; /* Hide overflow for neat edges */
+}
+
+.slider {
+    display: flex; /* Flexbox layout for the slider */
+    transition: transform 0.5s ease; /* Smooth transition for sliding */
+}
+
+.slide {
+    display: flex; /* Arrange items in a row */
+    width: 100%; /* Each slide takes full width of the slider */
+}
+
+.slide-item {
+    width: 50%; /* Each item takes half the slide width */
+    padding: 10px; /* Space around items */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.slide img {
+    width: 100%; /* Adjust width to fill the slide item */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures the image is fully visible */
+}
+
+.slide-details {
+    background-color: rgba(255, 255, 255, 0.673);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(237, 236, 236, 0.678);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: zoomIn 1s ease-out;
+}
+
+.slide-details h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+/* Tombol navigasi */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(245, 241, 241, 0.8);
+}
+
+/* Styling untuk tombol bulat di bawah slider */
+.dot-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.floating-whatsapp {
+    position: fixed;
+    width: auto;
+    height: 60px;
+    bottom: 80px; /* Menaikkan posisi WhatsApp button agar tidak menutupi footer */
+    right: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    animation: blink 1.5s infinite; /* Animasi blink tetap ada */
+}
+
+.floating-whatsapp:hover {
+    background-color: #128C7E;
+}
+
+.whatsapp-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.floating-whatsapp span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* Untuk memastikan tampil lebih baik di layar HP */
+@media (max-width: 480px) {
+    .floating-whatsapp {
+        bottom: 100px; /* Menaikkan lebih tinggi pada layar lebih kecil */
+    }
+}
+
+/* Gaya untuk teks tambahan */
+.additional-options {
+    display: flex;
+    font-size: 16px; /* Ukuran teks lebih kecil */
+    color: #000000; /* Warna teks sedikit lebih pudar */
+    margin-top: 7px; /* Ruang sedikit di atas teks tambahan */
+    font-weight: bold; /* Menambahkan teks tebal */
+}
+/* Styling for the "New Menu" badge */
+.new-menu-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    animation: pulse 1.5s infinite ease-in-out;
+    z-index: 10; /* Ensure it's above the rest of the content */
+}
+
+/* Add animation to the badge */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Ensure the position of the menu item relative to place the badge correctly */
+.menu-item {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-section {
+    margin: 40px 0;
+}
+
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Ubah menjadi 2 kotak di satu baris */
+}
+
+.menu-item {
+    flex: 1 1 300px;
+    padding: 10px; /* Perkecil padding agar kotak tidak terlalu besar */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    max-width: 100%;
+    height: 150px; /* Sesuaikan tinggi gambar agar lebih kecil */
+    border-radius: 10px;
+}
+
+.menu-details h3 {
+    color: #FFD700; /* Gold color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Black shadow */
+    font-family: 'calibri', serif; /* Elegant serif font */
+    font-size: 2.2rem; /* Adjust size as needed */
+    font-weight: 600; /* Semi-bold for a premium feel */
+    letter-spacing: 1px; /* Slight spacing for readability */
+    text-transform: uppercase; /* Optional: make text uppercase */
+    margin-bottom: 15px; /* Add space below the heading */
+}
+
+
+.menu-details p {
+    font-size: 0.9em; /* Perkecil ukuran teks deskripsi */
+    color: #555;
+}
+
+.menu-details .price {
+    font-size: 1em; /* Sesuaikan ukuran harga */
+    font-weight: italic,bold;
+    color: #950000;
+}
+
+.typing-loop {
+    font-family: 'Courier', monospace; /* Optional: A monospace font for a typewriter feel */
+    overflow: hidden; /* Ensures the text is clipped until animation ends */
+    border-right: .20em solid white; /* Adds the cursor effect */
+    white-space: nowrap; /* Prevents text from wrapping */
+    margin: 0 auto; /* Centers the text */
+    letter-spacing: 0.15em; /* Adds some space between letters */
+    width: 15ch; /* Set the width to fit the text */
+    color: white;
+    animation: typing-erasing 3s steps(13, end) infinite, blink-caret 0.75s step-end infinite;
+}
+
+/* Combined typing and erasing effect */
+@keyframes typing-erasing {
+    0% { width: 0; } /* Start with no text */
+    50% { width: 13ch; } /* Fully typed text */
+    100% { width: 0; } /* Erase the text completely */
+}
+
+/* The blinking cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+.long-menu-box {
+    width: 100%; /* Full width */
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7; /* Light background to stand out */
+    border: 2px solid #ccc;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.1); /* Shadow for depth */
+}
+.new-label {
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin-left: 10px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+.menu-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 0; /* Reduced padding */
+}
+
+.price {
+    margin-left: 10px; /* Reduced margin */
+    font-weight: bold;
+}
+
+.new-label {
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 4px; /* Slightly smaller padding */
+    margin-left: 5px;
+    border-radius: 3px;
+    text-transform: uppercase;
+
+    #searchResults {
+        margin-top: 20px;
+    }
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.menu-item {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+}
+
+.popup {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; /* Tetap di tempat */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang hitam dengan transparansi */
+    justify-content: center; /* Rata tengah secara horizontal */
+    align-items: center; /* Rata tengah secara vertikal */
+}
+
+.popup-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center; /* Teks rata tengah */
+    position: relative; /* Untuk posisi cancel button */
+}
+
+.popup-image {
+    max-width: 100%; /* Gambar maksimal 100% lebar pop-up */
+    height: auto; /* Tinggi otomatis */
+}
+
+.cancel {
+    color: #aaa;
+    float: right; /* Sejajar ke kanan */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    color: black; /* Ubah warna saat hover */
+}
+
+.cancel-button {
+    background-color: #f44336; /* Warna merah */
+    color: white; /* Teks putih */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.cancel-button:hover {
+    background-color: #c62828; /* Lebih gelap saat hover */
+}
+
+/* Styling for the images above each menu box */
+.menu-image {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 80%;
+    max-width: 500px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.search-input:focus {
+    border-color: #ff6347;
+}
+
+.search-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #ff4500;
+}
+
+.menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-item {
+    margin: 20px;
+}
+
+.drinks-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.menu-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.menu-item {
+    width: calc(33.33% - 20px);
+    cursor: pointer;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item h3 {
+    font-size: 18px;
+    color: #444;
+}
+
+.menu-item p {
+    font-size: 14px;
+    color: #666;
+}
+
+.menu-item .price {
+    font-weight: bold;
+    color: #950000;
+}
+
+@media (max-width: 768px) {
+    .menu-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-item {
+        width: 100%;
+    }
+}
+
+
+
+h2 {
+    color: white; /* Ubah warna menjadi putih */
+    text-align: center; /* Posisikan di tengah */
+    font-size: 2em;
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeIn 1.5s ease-in-out; /* Tambahkan animasi */
+}
+
+/* Animasi untuk efek fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Mulai dari sedikit ke atas */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Kembali ke posisi semula */
+    }
+}
+
+.exclude-tax {
+    display: block;
+    font-size: 10px;
+    color: #888;
+    margin-top: 2px; /* Beri jarak kecil dari harga */
+    text-align: right; /* Letakkan teks di sisi kanan */
+    white-space: nowrap; /* Pastikan teks tidak membungkus ke baris berikutnya */
+    pointer-events: none; /* Agar tidak mengganggu interaksi klik */
+}
+
+#cart-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.add-to-cart {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background-color: #218838;
+}
+
+
+
+
+.floating-cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffcc00;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+.cart-header {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart-details {
+    display: none;
+    margin-top: 10px;
+}
+
+.cart-details ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.cart-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.cart-details button {
+    width: 100%;
+    background-color: #28a745;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.cart-details button:hover {
+    background-color: #218838;
+}
+
+
+/* Floating Button */
+.floating-button {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#pesanLink {
+    background-color: #4CAF50; /* Warna latar tombol */
+    color: white;  /* Warna teks */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+#pesanLink.disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.floating-button a {
+    display: inline-block;
+    background-color: #28a745; /* Warna hijau */
+    color: white;
+    font-size: 18px; /* Ukuran teks lebih besar */
+    font-weight: bold;
+    padding: 15px 25px; /* Ukuran tombol lebih besar */
+    border-radius: 30px; /* Membuat tombol berbentuk elips */
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Bayangan untuk efek melayang */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-button a:hover {
+    background-color: #218838; /* Warna saat di-hover */
+    transform: scale(1.1); /* Efek zoom saat di-hover */
+}
+
+
+.floating-button:hover {
+    transform: scale(1.1);
+}
+
+/* Pop-up Form */
+#popup-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 999;
+    width: 300px;
+}
+
+#popup-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+#popup-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#popup-form button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#popup-form button:hover {
+    background-color: #1da851;
+}
+
+#popup-form .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Overlay Background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+}
+

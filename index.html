@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <!--favicon-->
+    <link rel="icon" href="assets/img/logo/Hotel Branding.png" type="image/x-icon">
+    
+    <!--style css-->
+    <link rel="stylesheet" href="styles.css">
+
+    <!--search-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!--teks-->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <!-- Logo Restoran -->
+        <img src="assets/img/logo/Hotel Branding.png" alt="Logo Restoran" class="logo">
+
+        <h1 class="title-outline-super-luxury">Panorama Sky Restaurant</h1>
+        
+        <!-- Hamburger menu -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navbar -->
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#appetizers">Starter Food</a></li>
+                <li><a href="#main-courses">main menu</a></li>
+                <li><a href="#dessert">deesert</a></li>
+                <li><a href="#drinks">drinks</a></li>
+                
+            </ul>
+        </nav>
+        
+    </header>
+
+    <h2>Menu Pencarian</h2>
+
+<div class="search-container">
+    <form action="javascript:void(0);" onsubmit="searchMenu()">
+        <input type="text" id="searchInput" placeholder="Cari menu..." class="search-input">
+        <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i> <!-- Ikon search dari FontAwesome -->
+        </button>
+    </form>
+</div>
+
+<div id="searchResults" class="menu-grid"></div> <!-- Tempat hasil pencarian -->
+
+    <section id="favorite-menu">
+        <h2 class="favorite-menu h2">Favorite Menu</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <div class="slide-item">
+                        <img src="assets/img/menu/sop ig.png" alt="Sop Iga Kedondong">
+                        <div class="slide-details">
+                            <h3>Sop Iga Kedondong</h3>
+                            <p>Traditional Beef Ribs With Ambarella Fruit, Tomato, Cube Potato, Herbs And Spices Served With Steam Rice</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <img src="assets/img/menu/sop b.png" alt="Sop Buntut">
+                        <div class="slide-details">
+                            <h3>Sop Buntut</h3>
+                            <p>Traditional Soup Beef Oxtail Served With Steam Rice, Melinjo Cracker</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-item">
+                        <img src="assets/img/menu/soto bet.png" alt="Soto Betawi">
+                        <div class="slide-details">
+                            <h3>Soto Betawi</h3>
+                            <p>Soto Betawi is a traditional Jakarta-style soup made with tender beef or offal in a rich, creamy coconut milk broth. It’s served with diced potatoes, tomatoes, and fried shallots, often accompanied by rice, pickles, and sambal.</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <img src="assets/img/menu/nasgor dai.png" alt="Nasi Goreng DailyInn">
+                        <div class="slide-details">
+                            <h3>Nasi Goreng DailyInn</h3>
+                            <p>Special Fried Ala Daily Inn Hotel, Fried Chicken, Chicken Satay And Cracker.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-item">
+                        <img src="assets/img/menu/gurame asam.png" alt="Gurame Asam Manis">
+                        <div class="slide-details">
+                            <h3>Gurame Asam Manis</h3>
+                            <p>Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sweet Sour Sauce.</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <img src="assets/img/menu/bebek.png" alt="Bebek Goreng Sambal Mercon">
+                        <div class="slide-details">
+                            <h3>Bebek Goreng Sambal Mercon</h3>
+                            <p>Grilled Duck Served With Steam Rice And Traditional Sauce.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-item">
+                        <img src="assets/img/menu/tanderlion.png" alt="Grilled Beef Tenderloin">
+                        <div class="slide-details">
+                            <h3>Grilled Beef Tenderloin</h3>
+                            <p>Grilled Of Tenderloin Served With Sauted Vegetables And French Fries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section id="menu">
+        <div class="menu-section" id="appetizers">
+            <h2>Starter Food</h2>
+            <div class="menu-grid">
+                <div class="menu-item" onclick="showPopup('assets/img/menu/chef salad.png', 'CHEF SALAD', 'Lettuce, Tomato, Cucumber, Smoke Beef, Boiled Egg Wedges, Cheese Served, With Thousand Island Sauce.')">
+                    <img src="assets/img/menu/chef salad.png" alt="CHEF SALAD" class="img-fluid">
+                    <h3>CHEF SALAD</h3>
+                    <p>Lettuce, Tomato, Cucumber, Smoke Beef, Boiled Egg Wedges, Cheese Served, With Thousand Island Sauce.</p>
+                    <span class="price">Rp.35.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+    
+                <div class="menu-item" onclick="showPopup('assets/img/menu/tuna.png', 'NICOISE TUNA SALAD', 'Lettuce, Tomato, Cucumber, String Bean, Cube Potato, Tuna Chunk Served With Vinaigrette Dressing.')">
+                    <img src="assets/img/menu/tuna.png" class="small-photo" alt="NICOISE TUNA SALAD">
+                    <div class="menu-details">
+                        <h3>NICOISE TUNA SALAD</h3>
+                        <p>Lettuce, Tomato, Cucumber, String Bean, Cube Potato, Tuna Chunk Served With Vinaigrette Dressing.</p>
+                        <span class="price">Rp.35.000</span>
+                        <span class="exclude-tax">Exclude tax & service charge</span>
+                        <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/chic.png', 'CHICKEN SALAD', 'Lettuce, Tomato, Smoked Chicken, Onion, Crouton Served With Thousand Island Sauce.')">
+                    <img src="assets/img/menu/chic.png" class="small-photo" alt="CHICKEN SALAD">
+                    <div class="menu-details">
+                        <h3>CHICKEN SALAD</h3>
+                        <p>Lettuce, Tomato, Smoked Chicken, Onion, Crouton Served With Thousand Island Sauce.</p>
+                        <span class="price">Rp.35.000</span>
+                        <span class="exclude-tax">Exclude tax & service charge</span>
+                        <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/gado.png', 'GADO-GADO', 'Boiled Mix Vegetables, Fried Bean Cake, Fried Tofu, Boiled Egg Served Peanut Sauce.')">
+                    <img src="assets/img/menu/gado.png" class="small-photo" alt="GADO-GADO">
+                    <div class="menu-details">
+                        <h3>GADO-GADO</h3>
+                        <p>Boiled Mix Vegetables, Fried Bean Cake, Fried Tofu, Boiled Egg Served Peanut Sauce.</p>
+                        <span class="price">Rp.35.000</span>
+                        <span class="exclude-tax">Exclude tax & service charge</span>
+                                            <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item no-photo" onclick="showPopup('assets/img/menu/coming.png', 'VEGETABLES SALAD', 'Broccoli, Carrot, Cauliflower, String Bean, Tomato, Lettuce Ice Berg Served with Italian Dressing and Garlic Bread.')">
+                    <img src="assets/img/menu/coming.png" class="small-photo" alt="VEGETABLES SALAD">
+                    <div class="menu-details">
+                        <h3>VEGETABLES SALAD</h3>
+                        <p>Broccoli, Carrot, Cauliflower, String Bean, Tomato, Lettuce Ice Berg Served with Italian Dressing and Garlic Bread.</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+                <div class="menu-item no-photo" onclick="showPopup('assets/img/menu/coming.png', 'FRUIT SALAD', 'Pineapple, Papaya, Honey Dew, Served with Honey Mayo, Raisin, and Cheese.')">
+                    <img src="assets/img/menu/coming.png" class="small-photo" alt="FRUIT SALAD">
+                    <div class="menu-details">
+                        <h3>FRUIT SALAD</h3>
+                        <p>Pineapple, Papaya, Honey Dew, Served with Honey Mayo, Raisin, and Cheese.</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Pop-up notifikasi untuk menampilkan detail foto -->
+       
+    
+   
+    
+
+        <div class="menu-section" id="main-courses">
+            <h2 onclick="toggleMenu('main-courses')" class="dropdown-title">Pasta Food</h2>
+            <div class="menu-grid" id="pastaMenuGrid">
+                <div class="menu-item" onclick="showPopup('assets/img/menu/spa car.png', 'SPAGHETTI OR FETTUCINI CARBONARA', 'Choice Of Spaghetti Or Fettucini Pasta With Smoked Beef, Onion And Cream Served With Garlic Bread.')">
+                    <img src="assets/img/menu/spa car.png" class="small-photo" alt="SPAGHETTI OR FETTUCINI CARBONARA">
+                    <div class="menu-details">
+                        <h3>SPAGHETTI OR FETTUCINI CARBONARA</h3>
+                        <p>Choice Of Spaghetti Or Fettucini Pasta With Smoked Beef, Onion And Cream Served With Garlic Bread</p>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/spa bolo.png', 'SPAGHETTI OR FETTUCINI BOLOGNAISE', 'Choice Of Spaghetti Or Fettucini Pasta With Minced Beef, Bolognese Sauce And Garlic Bread.')">
+                    <img src="assets/img/menu/spa bolo.png" class="small-photo" alt="SPAGHETTI OR FETTUCINI BOLOGNAISE">
+                    <div class="menu-details">
+                        <h3>SPAGHETTI OR FETTUCINI BOLOGNAISE</h3>
+                        <p>Choice Of Spaghetti Or Fettucini Pasta With Minced Beef, Bolognese Sauce And Garlic Bread.</p>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/spa mari.png', 'SPAGHETTI OR FETTUCINI AI MARINARA', 'Choice Of Spaghetti Or Fettucini Pasta With Minced Beef, Marinara Sauce Served And Garlic Bread.')">
+                    <img src="assets/img/menu/spa mari.png" class="small-photo" alt="SPAGHETTI OR FETTUCINI AI MARINARA">
+                    <div class="menu-details">
+                        <h3>SPAGHETTI OR FETTUCINI AI MARINARA</h3>
+                        <p>Choice Of Spaghetti Or Fettucini Pasta With Minced Beef, Marinara Sauce Served And Garlic Bread.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/spa cary.png', 'SPAGHETTI OR FETTUCINI AI CURRY', 'Choice Of Spaghetti Or Fettucini Pasta With Fresh Milk And Curry Sauce Serving With Shrimp And Garlic Bread.')">
+                    <img src="assets/img/menu/spa cary.png" class="small-photo" alt="SPAGHETTI OR FETTUCINI AI CURRY">
+                    <div class="menu-details">
+                        <h3>SPAGHETTI OR FETTUCINI AI CURRY</h3>
+                        <p>Choice Of Spaghetti Or Fettucini Pasta With Fresh Milk And Curry Sauce Serving With Shrimp And Garlic Bread.</p>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="menu-section" id="desserts">
+            <h2 onclick="toggleMenu('desserts')" class="dropdown-title">Nusantara Menu</h2>
+            <div class="menu-grid" id="nusantaraMenuGrid">
+                <div class="menu-item" onclick="showPopup('assets/img/menu/patin padeh.png', 'IKAN PATIN ASAM PADEH', 'Our Favourite Fresh Water Carp Fish Is Initially Blancing And Cooked In A Minangkabau Style Served With Steam Rice.')">
+                    <img src="assets/img/menu/patin padeh.png" class="small-photo" alt="IKAN PATIN ASAM PADEH">
+                    <div class="menu-details">
+                        <h3>IKAN PATIN ASAM PADEH</h3>
+                        <p>Our Favourite Fresh Water Carp Fish Is Initially Blancing And Cooked In A Minangkabau Style Served With Steam Rice.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Ayam_Bakar_Taliwang-removebg-preview.png', 'AYAM BAKAR TALIWANG', 'Chicken Stew & Grilled With Herbs And Spices Served With, Fresh Vegetable And Steam Rice.')">
+                    <img src="assets/img/menu/Ayam_Bakar_Taliwang-removebg-preview.png" class="small-photo" alt="AYAM BAKAR TALIWANG">
+                    <div class="menu-details">
+                        <h3>AYAM BAKAR TALIWANG</h3>
+                        <p>Chicken Stew & Grilled With Herbs And Spices Served With, Fresh Vegetable And Steam Rice.</p>
+                        <span class="price">Rp.50.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/gurame padang.png', 'GURAME SAUS PADANG', 'Fried Fresh-Water Carp Fish Served With Traditional Sauce Padang And Steam Rice.')">
+                    <img src="assets/img/menu/gurame padang.png" class="small-photo" alt="GURAME SAUS PADANG">
+                    <div class="menu-details">
+                        <h3>GURAME SAUS PADANG</h3>
+                        <p>Fried Fresh-Water Carp Fish Served With Traditional Sauce Padang And Steam Rice.</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Nasi_Goreng_Teri_Medan-removebg-preview.png', 'NASI GORENG TERI MEDAN', 'Fried Rice Anchovy (Teri) Served With Sunny Side Up, Pickle And Cracker.')">
+                    <img src="assets/img/menu/Nasi_Goreng_Teri_Medan-removebg-preview.png" class="small-photo" alt="NASI GORENG TERI MEDAN">
+                    <div class="menu-details">
+                        <h3>NASI GORENG TERI MEDAN</h3>
+                        <p>Fried Rice Anchovy (Teri) Served With Sunny Side Up, Pickle And Cracker.</p>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Nasi_Goreng_Seafood-removebg-preview.png', 'NASI GORENG SEAFOOD', 'Fried Rice With Shrimp, Squid, Fish Served With Pickle And Cracker.')">
+                    <img src="assets/img/menu/Nasi_Goreng_Seafood-removebg-preview.png" class="small-photo" alt="NASI GORENG SEAFOOD">
+                    <div class="menu-details">
+                        <h3>NASI GORENG SEAFOOD</h3>
+                        <p>Fried Rice With Shrimp, Squid, Fish Served With Pickle And Cracker.</p>
+                        <span class="price">Rp.50.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/soto bet.png', 'SOTO BETAWI', 'Traditional Beef Ribs With Ambarella Fruit, Tomato, Cube Potato, Herbs And Spices Served With Steam Rice.')">
+                    <img src="assets/img/menu/soto bet.png" class="small-photo" alt="SOTO BETAWI">
+                    <div class="menu-details">
+                        <h3>SOTO BETAWI</h3>
+                        <p>Traditional Beef Ribs With Ambarella Fruit, Tomato, Cube Potato, Herbs And Spices Served With Steam Rice.</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Soto_Medan-removebg-preview.png', 'SOTO MEDAN', 'Chicken Soup Coocked In North Sumatra Style With Potato Patties, Vemicelli, Bean Sprout, Coconut Milk Served With Steam Rice And Melinjo Cracker.')">
+                    <img src="assets/img/menu/Soto_Medan-removebg-preview.png" class="small-photo" alt="SOTO MEDAN">
+                    <div class="menu-details">
+                        <h3>SOTO MEDAN</h3>
+                        <p>Chicken Soup Coocked In North Sumatra Style With Potato Patties, Vemicelli, Bean Sprout, Coconut Milk Served With Steam Rice And Melinjo Cracker.</p>
+                        <span class="price">Rp.50.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Ayam_Goreng_3_Rasa__1_-removebg-preview.png', 'AYAM GORENG 3 RASA', 'Fried Chicken Served With Fresh Vegetables And Three-Taste Sauce.')">
+                    <img src="assets/img/menu/Ayam_Goreng_3_Rasa__1_-removebg-preview.png" class="small-photo" alt="AYAM GORENG 3 RASA">
+                    <div class="menu-details">
+                        <h3>AYAM GORENG 3 RASA</h3>
+                        <p>Fried Chicken Served With Fresh Vegetables And Three-Taste Sauce.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Gurame_Sambal_Thailand-removebg-preview.png', 'GURAME SAUS THAILAND', 'Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sauce Thailand.')">
+                    <img src="assets/img/menu/Gurame_Sambal_Thailand-removebg-preview.png" class="small-photo" alt="GURAME SAUS THAILAND">
+                    <div class="menu-details">
+                        <h3>GURAME SAUS THAILAND</h3>
+                        <p>Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sauce Thailand.</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/gurame asam.png', 'GURAME ASAM MANIS', 'Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sweet Sour Sauce.')">
+                    <img src="assets/img/menu/gurame asam.png" class="small-photo" alt="GURAME ASAM MANIS">
+                    <div class="menu-details">
+                        <h3>GURAME ASAM MANIS</h3>
+                        <p>Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sweet Sour Sauce.</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Gurame_Saus_Kecombrang-removebg-preview.png', 'GURAME SAMBAL KECOMBRANG', 'Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sauce Kecombrang.')">
+                    <img src="assets/img/menu/Gurame_Saus_Kecombrang-removebg-preview.png" class="small-photo" alt="GURAME SAMBAL KECOMBRANG">
+                    <div class="menu-details">
+                        <h3>GURAME SAMBAL KECOMBRANG</h3>
+                        <p>Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice & Sauce Kecombrang.</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/nasgor dai.png', 'NASI GORENG DAILY INN', 'Special Fried Ala Daily Inn Hotel, Fried Chicken, Chicken Satay And Cracker.')">
+                    <img src="assets/img/menu/nasgor dai.png" class="small-photo" alt="NASI GORENG DAILY INN">
+                    <div class="menu-details">
+                        <h3>NASI GORENG DAILY INN</h3>
+                        <p>Special Fried Ala Daily Inn Hotel, Fried Chicken, Chicken Satay And Cracker.</p>
+                        <span class="price">Rp.50.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/MIE_GORENG_AYAM-removebg-preview.png', 'MIE GORENG', 'Fried Noodles Vegetables & Chicken Served With Pickle And Cracker.')">
+                    <img src="assets/img/menu/MIE_GORENG_AYAM-removebg-preview.png" class="small-photo" alt="MIE GORENG">
+                    <div class="menu-details">
+                        <h3>MIE GORENG</h3>
+                        <p>Fried Noodles Vegetables & Chicken Served With Pickle And Cracker.</p>
+                        <small class="additional-options">Tersedia pilihan: Bihun, Kwetiaw, Sohun</small>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/dabu.png', 'IKAN PATIN SAMBAL DABU DABU', 'Grilled Fresh-Water Catfish Served With Traditional Sauce Manadonese And Steam Rice.')">
+                    <img src="assets/img/menu/dabu.png" class="small-photo" alt="IKAN PATIN SAMBAL DABU DABU">
+                    <div class="menu-details">
+                        <h3>IKAN PATIN SAMBAL DABU DABU</h3>
+                        <p>Grilled Fresh-Water Catfish Served With Traditional Sauce Manadonese And Steam Rice.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/bebek.png', 'BEBEK BAKAR/ GORENG BUMBU RUJAK/ SAMBAL MERCON', 'Grilled Duck Served With Steam Rice And Traditional Sauce.')">
+                    <img src="assets/img/menu/bebek.png" class="small-photo" alt="BEBEK BAKAR/ GORENG BUMBU RUJAK/ SAMBAL MERCON">
+                    <div class="menu-details">
+                        <h3>BEBEK BAKAR/ GORENG BUMBU RUJAK/ SAMBAL MERCON</h3>
+                        <p>Grilled Duck Served With Steam Rice And Traditional Sauce.</p>
+                        <span class="price">Rp.70.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Sup_Ikan_Daily_Inn-removebg-preview.png', 'SUP IKAN DAILY INN', 'Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice.')">
+                    <img src="assets/img/menu/Sup_Ikan_Daily_Inn-removebg-preview.png" class="small-photo" alt="SUP IKAN DAILY INN">
+                    <div class="menu-details">
+                        <h3>SUP IKAN DAILY INN</h3>
+                        <p>Fried Fresh-Water Carp Fish Served With Traditional Herb And Steam Rice.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Soto_Ayam-removebg-preview.png', 'SOTO AYAM', 'Indonesia Chicken Soup With Shredded Chicken, Boiled Egg, Vermicelli, Cabbage, Bean Sprout, Tomato Served With Steam Rice And Melinjo Cracker.')">
+                    <img src="assets/img/menu/Soto_Ayam-removebg-preview.png" class="small-photo" alt="SOTO AYAM">
+                    <div class="menu-details">
+                        <h3>SOTO AYAM</h3>
+                        <p>Indonesia Chicken Soup With Shredded Chicken, Boiled Egg, Vermicelli, Cabbage, Bean Sprout, Tomato Served With Steam Rice And Melinjo Cracker.</p>
+                        <span class="price">Rp.40.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Soup_Iga_Kedondong-removebg-preview.png', 'SUP IGA KEDONDONG', 'Traditional Beef Ribs With Ambarella Fruit, Tomato, Cube Potato, Herbs And Spices Served With Steam Rice')">
+                    <img src="assets/img/menu/Soup_Iga_Kedondong-removebg-preview.png" class="small-photo" alt="SUP IGA KEDONDONG">
+                    <div class="menu-details">
+                        <h3>SUP IGA KEDONDONG</h3>
+                        <p>Traditional Beef Ribs With Ambarella Fruit, Tomato, Cube Potato, Herbs And Spices Served With Steam Rice</p>
+                        <span class="price">Rp.75.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/sop b.png', 'SUP BUNTUT', 'Traditional Soup Beef Oxtail Served With Steam Rice, Melinjo Cracker')">
+                    <img src="assets/img/menu/sop b.png" class="small-photo" alt="SUP BUNTUT">
+                    <div class="menu-details">
+                        <h3>SUP BUNTUT</h3>
+                        <p>Traditional Soup Beef Oxtail Served With Steam Rice, Melinjo Cracker</p>
+                        <span class="price">Rp.85.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                <div class="menu-item no-photo" onclick="showPopup('assets/img/menu/coming.png', 'AYAM BAKAR CABE IJO', 'Grilled Chicken with Green Chili is a dish featuring grilled chicken served with a spicy and fresh green chili sambal. The chicken is golden brown with well-absorbed seasoning, while the sambal is bright green with visible slices of chili and tomato.')">
+                    <img src="assets/img/menu/coming.png" class="small-photo" alt="AYAM BAKAR CABE IJO">
+                    <div class="menu-details">
+                        <h3>AYAM BAKAR CABE IJO</h3>
+                        <p>Grilled Chicken with Green Chili is a dish featuring grilled chicken served with a spicy and fresh green chili sambal. The chicken is golden brown with well-absorbed seasoning, while the sambal is bright green with visible slices of chili and tomato.</p>
+                        <span class="price">Rp.45.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/nasi timbel bakar.png', 'NASI TIMBEL BAKAR', 'Nasi yang di bungkus dengan daun pisang yang di bakar untuk menambah aroma. disajikna dengan ayam goreng, sayur asem,tempe dan tahu goreng.')">
+                    <img src="assets/img/menu/nasi timbel bakar.png" class="small-photo" alt="NASI TIMBEL BAKAR">
+                    <div class="menu-details">
+                        <h3>NASI TIMBEL BAKAR</h3>
+                        <p>steamed rice covered in banana leaf then grilled to create a forgrant aroma. Served with fried chicken, sayur asem and fried tempe an tofu.</p>
+                        <span class="price">Rp.55.000</span>
+                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/oseng daging dabu dabu.png', 'OSENG DAGING DABU DABU', 'daging oseng dengan taburan sambal dabu dabu dengan side dish sayur asem')">
+                    <img src="assets/img/menu/oseng daging dabu dabu.png" class="small-photo" alt="OSENG DAGING DABU DABU">
+                    <div class="menu-details">
+                        <h3>OSENG DAGING DABU DABU</h3>
+                        <p>marinated and sauted beef with sambal dabu-dabu on top served with sayur asem and fried tempe and tofu.</p>
+                        <span class="price">Rp.55.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+                <div class="menu-item" onclick="showPopup('assets/img/menu/Gurame bakar sambal parape.png', 'GURAME BAKAR SAMBAL PARAPE', 'gurame bakar dibalut sambal parape khas makasar dengan side dish sayur asem')">
+                    <img src="assets/img/menu/Gurame bakar sambal parape.png" class="small-photo" alt="GURAME BAKAR SAMBAL PARAPE">
+                    <div class="menu-details">
+                        <h3>GURAME BAKAR SAMBAL PARAPE</h3>
+                        <p>fresh griled gurame covered in sambal parape served with sayur asam and fried tempe and tofu.</p>
+                        <span class="price">Rp.55.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                    <div class="new-menu-badge">NEW MENU</div>
+                </div>
+            </div>
+        </div>
+        
+
+
+    <!-- Vegetables Section -->
+<div class="menu-section" id="vegetable">
+    <h2>Vegetables</h2>
+    <div class="menu-grid">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/tauge.png', 'CHA TAUGE IKAN ASIN', 'Stir Bean Sprouts With Teri-Teri.')">
+            <img src="assets/img/menu/tauge.png" class="small-photo" alt="CHA TAUGE IKAN ASIN">
+            <div class="menu-details">
+                <h3>CHA TAUGE IKAN ASIN</h3>
+                <p>Stir Bean Sprouts With Teri-Teri.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/broco.png', 'SAUTED BROCCOLI WITH GARLIC', 'Stir Broccoli With Garlic And Oyster Sauce.')">
+            <img src="assets/img/menu/broco.png" class="small-photo" alt="SAUTED BROCCOLI WITH GARLIC">
+            <div class="menu-details">
+                <h3>SAUTED BROCCOLI WITH GARLIC</h3>
+                <p>Stir Broccoli With Garlic And Oyster Sauce.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/oyster.png', 'BROCCOLI CAH OYSTER', 'Stir Broccoli With Garlic And Oyster Sauce.')">
+            <img src="assets/img/menu/oyster.png" class="small-photo" alt="BROCCOLI CAH OYSTER">
+            <div class="menu-details">
+                <h3>BROCCOLI CAH OYSTER</h3>
+                <p>Stir Broccoli With Garlic And Oyster Sauce.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Cap_Cay-removebg-preview.png', 'CAP CAY', 'Mixed vegetables sauted ala Chinese style.')">
+            <img src="assets/img/menu/Cap_Cay-removebg-preview.png" class="small-photo" alt="CAP CAY">
+            <div class="menu-details">
+                <h3>CAP CAY</h3>
+                <p>Mixed vegetables sauted ala Chinese style.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Pok_Coy_Cah_Garlic-removebg-preview.png', 'POK-COY WITH GARLIC', 'Stir Pok-Coy With Garlic And Oyster Sauce.')">
+            <img src="assets/img/menu/Pok_Coy_Cah_Garlic-removebg-preview.png" class="small-photo" alt="POK-COY WITH GARLIC">
+            <div class="menu-details">
+                <h3>POK-COY WITH GARLIC</h3>
+                <p>Stir Pok-Coy With Garlic And Oyster Sauce.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Continental Section -->
+<div class="menu-section" id="continental">
+    <h2>Continental</h2>
+    <div class="menu-grid">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Chicken_Katsu-removebg-preview.png', 'CHICKEN KATSU WITH TERIYAKI SAUCE', 'Beer Battered Fried Chicken Fillet, ServedWith Butter Rice, Coslow And Teriyaki Sauce.')">
+            <img src="assets/img/menu/Chicken_Katsu-removebg-preview.png" class="small-photo" alt="CHICKEN KATSU WITH TERIYAKI SAUCE">
+            <div class="menu-details">
+                <h3>CHICKEN KATSU WITH TERIYAKI SAUCE</h3>
+                <p>Beer Battered Fried Chicken Fillet, ServedWith Butter Rice, Coslow And Teriyaki Sauce.</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Grill_Chicken_Steak-removebg-preview.png', 'GRILLED CHICKEN STEAK', 'Pan Fried Marinette Boneless Chicken, Served With Potatoes Wedges, Grill Tomato, Sauted Vegetables And Bbq Sauce Or Black.')">
+            <img src="assets/img/menu/Grill_Chicken_Steak-removebg-preview.png" class="small-photo" alt="GRILLED CHICKEN STEAK">
+            <div class="menu-details">
+                <h3>GRILLED CHICKEN STEAK</h3>
+                <p>Pan Fried Marinette Boneless Chicken, Served With Potatoes Wedges, Grill Tomato, Sauted Vegetables And Bbq Sauce Or Black.</p>
+                <small class="additional-options">Tersedia varian sauce: bbq, mushroom, black paper</small>
+                <span class="price">Rp.55.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Chicken_Parmigiana-removebg-preview.png', 'CHICKEN PARMIGIANA', 'Fettucini Pasta Coocked With Pesto Sauce Served With Chicken Fillet Topping Cheese Mozarella.')">
+            <img src="assets/img/menu/Chicken_Parmigiana-removebg-preview.png" class="small-photo" alt="CHICKEN PARMIGIANA">
+            <div class="menu-details">
+                <h3>CHICKEN PARMIGIANA</h3>
+                <p>Fettucini Pasta Coocked With Pesto Sauce Served With Chicken Fillet Topping Cheese Mozarella.</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/tander.png', 'GRILLED BEEF TENDERLOIN', 'Grilled Of Tenderloin Served With Sauted Vegetables And French Fries.')">
+            <img src="assets/img/menu/tander.png" class="small-photo" alt="GRILLED BEEF TENDERLOIN">
+            <div class="menu-details">
+                <h3>GRILLED BEEF TENDERLOIN</h3>
+                <p>Grilled Of Tenderloin Served With Sauted Vegetables And French Fries.</p>
+                <small class="additional-options">Tersedia varian sauce: bbq, mushroom, black paper</small>
+                <span class="price">Rp.90.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Tom_Yam-removebg-preview.png', 'TOM YUM SOUP', 'Hot And Sour Coconut Milk Soup With Shrimp, Squid, Fish Dori, Spices Served With Steam Rice And Melinjo Cracker.')">
+            <img src="assets/img/menu/Tom_Yam-removebg-preview.png" class="small-photo" alt="TOM YUM SOUP">
+            <div class="menu-details">
+                <h3>TOM YUM SOUP</h3>
+                <p>Hot And Sour Coconut Milk Soup With Shrimp, Squid, Fish Dori, Spices Served With Steam Rice And Melinjo Cracker.</p>
+                <span class="price">Rp.55.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'BLACK PEPPER BEEF', 'Black Pepper Beef is a savory dish made with tender slices of beef stir-fried in a rich black pepper sauce. The beef is juicy and coated with a glossy, dark sauce that’s flecked with cracked black pepper, giving it a bold, spicy kick. The dish is often garnished with sliced bell peppers and onions, adding vibrant colors and textures.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="BLACK PEPPER BEEF">
+            <div class="menu-details">
+                <h3>BLACK PEPPER BEEF</h3>
+                <p>Black Pepper Beef is a savory dish made with tender slices of beef stir-fried in a rich black pepper sauce. The beef is juicy and coated with a glossy, dark sauce that’s flecked with cracked black pepper, giving it a bold, spicy kick. The dish is often garnished with sliced bell peppers and onions, adding vibrant colors and textures.</p>
+                <span class="price">Rp.50.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <!-- New Menu Badge -->
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/dakgangjeoung tongdak.png', 'DAKGANGJEONG TONGDAK', 'Ayam goreng krispi di balut dengan saus pedas dan masnis')">
+            <img src="assets/img/menu/dakgangjeoung tongdak.png" class="small-photo" alt="DAKGANGJEONG TONGDAK">
+            <div class="menu-details">
+                <h3>DAKGANGJEONG TONGDAK</h3>
+                <p>Deep-fried crispy chicken dish glazed in a sticky, sweet, and mild spicy sauce.</p>
+                <span class="price">Rp.55.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/yangnyeom tongdak.png', 'YANGNYEOM TONGDAK', 'Ayam goreng krispi yang dibalut dengan saus gochujang pedas manis')">
+            <img src="assets/img/menu/yangnyeom tongdak.png" class="small-photo" alt="YANGNYEOM TONGDAK">
+            <div class="menu-details">
+                <h3>YANGNYEOM TONGDAK</h3>
+                <p>korean style fried chicken glazed  in sweet and spicy sauce. </p>
+                <span class="price">Rp.55.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+    </div>
+</div>
+
+
+
+  <!-- Light Food Section -->
+<div class="menu-section" id="light-food">
+    <h2>Light Food</h2>
+    <div class="menu-grid">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/spring.png', 'SPRING ROLL', 'Mixed Vegetables, Prawn And Fish Cop Served With Thai Sauce.')">
+            <img src="assets/img/menu/spring.png" class="small-photo" alt="SPRING ROLL">
+            <div class="menu-details">
+                <h3>SPRING ROLL</h3>
+                <p>Mixed Vegetables, Prawn And Fish Cop Served With Thai Sauce.</p>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/CALAMARY-removebg-preview.png', 'CALAMARY', 'Beer Battered Fried Squid Rings Served With Tartar Sauce.')">
+            <img src="assets/img/menu/CALAMARY-removebg-preview.png" class="small-photo" alt="CALAMARY">
+            <div class="menu-details">
+                <h3>CALAMARY</h3>
+                <p>Beer Battered Fried Squid Rings Served With Tartar Sauce.</p>
+                <span class="price">Rp.45.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Tahu_ranjau-removebg-preview.png', 'TAHU RANJAU', 'Fried Tofu Fill In Vegetables And Cayanne Pepper.')">
+            <img src="assets/img/menu/Tahu_ranjau-removebg-preview.png" class="small-photo" alt="TAHU RANJAU">
+            <div class="menu-details">
+                <h3>TAHU RANJAU</h3>
+                <p>Fried Tofu Fill In Vegetables And Cayanne Pepper.</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Tempe_Mendoan-removebg-preview.png', 'TEMPE MENDOAN', 'Beer Battered Bean Cake Served With Chili Soy Sauce.')">
+            <img src="assets/img/menu/Tempe_Mendoan-removebg-preview.png" class="small-photo" alt="TEMPE MENDOAN">
+            <div class="menu-details">
+                <h3>TEMPE MENDOAN</h3>
+                <p>Beer Battered Bean Cake Served With Chili Soy Sauce.</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'DIMSUM', 'Dimsum is a bite-sized dumpling filled with seasoned minced chicken, often steamed and served in a small bamboo basket. The delicate wrapper is translucent, revealing the juicy chicken filling inside, perfect for dipping in soy sauce or chili oil.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="Dimsum">
+            <div class="menu-details">
+                <h3>DIMSUM</h3>
+                <p>Dimsum is a bite-sized dumpling filled with seasoned minced chicken, often steamed and served in a small bamboo basket. The delicate wrapper is translucent, revealing the juicy chicken filling inside, perfect for dipping in soy sauce or chili oil.</p>
+                <span class="price">Rp.28.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'CHICKEN WINGS', 'Chicken Wings are crispy, golden-brown wings, often fried or baked, with tender, juicy meat inside. They can be coated in a variety of sauces, such as spicy buffalo, tangy barbecue, or honey garlic, and are typically served with a side of dipping sauce like ranch or blue cheese.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="CHICKEN WINGS">
+            <div class="menu-details">
+                <h3>CHICKEN WINGS</h3>
+                <p>Chicken Wings are crispy, golden-brown wings, often fried or baked, with tender, juicy meat inside. They can be coated in a variety of sauces, such as spicy buffalo, tangy barbecue, or honey garlic, and are typically served with a side of dipping sauce like ranch or blue cheese.</p>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'ONION RINGS', 'Onion Rings are crispy, golden-fried rings made from slices of onion, coated in a light batter or breadcrumbs. They\'re crunchy on the outside and soft on the inside, often served as a snack or side dish, accompanied by dipping sauces like ketchup, mayonnaise, or ranch.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="ONION RINGS">
+            <div class="menu-details">
+                <h3>ONION RINGS</h3>
+                <p>Onion Rings are crispy, golden-fried rings made from slices of onion, coated in a light batter or breadcrumbs. They're crunchy on the outside and soft on the inside, often served as a snack or side dish, accompanied by dipping sauces like ketchup, mayonnaise, or ranch.</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'BEEF SAUSAGE & FRENCH FRIES', 'Beef Sausage & French Fries is a simple yet tasty dish featuring juicy, grilled beef sausages paired with crispy, golden French fries. The sausages are savory and flavorful, while the fries are perfectly salted and crunchy. Often served with ketchup, mustard, or other dipping sauces.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="BEEF SAUSAGE & FRENCH FRIES">
+            <div class="menu-details">
+                <h3>BEEF SAUSAGE & FRENCH FRIES</h3>
+                <p>Beef Sausage & French Fries is a simple yet tasty dish featuring juicy, grilled beef sausages paired with crispy, golden French fries. The sausages are savory and flavorful, while the fries are perfectly salted and crunchy. Often served with ketchup, mustard, or other dipping sauces.</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+    </div>
+</div>
+
+<!-- Sandwiches Section -->
+<div class="menu-section" id="sandwiches">
+    <h2>Sandwiches</h2>
+    <div class="menu-grid">
+        <!-- Sandwich 1 -->
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'Chicken Sandwich', 'A classic triple-layered sandwich with grilled chicken, smoked beef, fresh lettuce, tomatoes, fried egg, and mayonnaise, served with a side of crispy fries.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="CHICKEN SANDHWICH">
+            <div class="menu-details">
+                <h3>Chicken Sandwich</h3>
+                <p>A classic triple-layered sandwich with grilled chicken, smoked beef, fresh lettuce, tomatoes, fried egg, and mayonnaise, served with a side of crispy fries.</p>
+                <span class="price">Rp.45.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <!-- Sandwich 2 -->
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'Tuna Sandwich', 'Fresh tuna mixed with mayonnaise, sweet corn, lettuce, and tomato on whole wheat bread, served with a side salad and potato chips.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="TUNA SANDHWICH">
+            <div class="menu-details">
+                <h3>Tuna Sandwich</h3>
+                <p>Fresh tuna mixed with mayonnaise, sweet corn, lettuce, and tomato on whole wheat bread, served with a side salad and potato chips.</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+    </div>
+</div>
+
+<!-- Dessert Section -->
+<div class="menu-section" id="dessert">
+    <h2>Dessert</h2>
+    <div class="menu-grid">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/Pisang_Goreng_Coklat_Keju-removebg-preview.png', 'PISANG GORENG ', 'Beer Battered Banana With Topping Chocolate And Cheese.')">
+            <img src="assets/img/menu/Pisang_Goreng_Coklat_Keju-removebg-preview.png" class="small-photo" alt="Pisang Goreng ">
+            <div class="menu-details">
+                <h3>PISANG GORENG KEJU</h3>
+                <p>Beer Battered Banana With Topping Chocolate And Cheese.</p>
+                <small class="additional-options">Tersedia varian Toping: keju,coklat,mix </small>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/slice.png', 'RAINBOW SLICE FRUIT', 'Sliced Of Watermelon, Honeydew, Papaya, Pineapple.')">
+            <img src="assets/img/menu/slice.png" class="small-photo" alt="Rainbow Slice Fruit">
+            <div class="menu-details">
+                <h3>RAINBOW SLICE FRUIT</h3>
+                <p>Sliced Of Watermelon, Honeydew, Papaya, Pineapple.</p>
+                <span class="price">Rp.30.000</span>
+
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/piscokkej.png', 'PISANG BAKAR ', 'Beer Battered Banana With Topping Chocolate And Cheese.')">
+            <img src="assets/img/menu/piscokkej.png" class="small-photo" alt="Pisang Bakar ">
+            <div class="menu-details">
+                <h3>PISANG BAKAR </h3>
+                <p>Beer Battered Banana With Topping Chocolate And Cheese.</p>
+                <small class="additional-options">Tersedia varian Toping: keju,coklat,mix </small>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'WAFFLE ICE CREAM DAILY INN', 'Waffle Ice Cream ala Hotel Daily Inn is a warm, crispy waffle topped with creamy ice cream, often garnished with fruits or chocolate drizzle for a sweet treat.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="WAFFLE ICE CREAM DAILY INN">
+            <div class="menu-details">
+                <h3>WAFFLE ICE CREAM DAILY INN</h3>
+                <p>Waffle Ice Cream ala Hotel Daily Inn is a warm, crispy waffle topped with creamy ice cream, often garnished with fruits or chocolate drizzle for a sweet treat.</p>
+                <span class="price">Rp.38.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'ICE CREAM GORENG DAILY INN', 'Ice Cream Goreng ala Hotel Daily Inn is a unique dessert where creamy ice cream is coated in a crispy, fried shell. The contrast between the hot, crunchy exterior and the cold, creamy ice cream inside makes for a delightful treat.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="ICE CREAM GORENG DAILY INN">
+            <div class="menu-details">
+                <h3>ICE CREAM GORENG DAILY INN</h3>
+                <p>Ice Cream Goreng ala Hotel Daily Inn is a unique dessert where creamy ice cream is coated in a crispy, fried shell. The contrast between the hot, crunchy exterior and the cold, creamy ice cream inside makes for a delightful treat.</p>
+                <span class="price">Rp.38.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coming.png', 'BANANA SPLIT', 'Banana Split is a classic dessert featuring a split banana topped with scoops of ice cream, usually vanilla, chocolate, and strawberry. It\'s finished with whipped cream, chocolate or caramel sauce, and a cherry on top.')">
+            <img src="assets/img/menu/coming.png" class="small-photo" alt="BANANA SPLIT">
+            <div class="menu-details">
+                <h3>BANANA SPLIT</h3>
+                <p>Banana Split is a classic dessert featuring a split banana topped with scoops of ice cream, usually vanilla, chocolate, and strawberry. It's finished with whipped cream, chocolate or caramel sauce, and a cherry on top.</p>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+            <div class="new-menu-badge">NEW MENU</div>
+        </div>
+    </div>
+</div>
+
+
+<div class="menu-section" id="drinks">
+    <h2>Drinks</h2>
+
+    <h1 class="typing-loop">JUICE</h1>
+    <h2>.</h2>
+
+    <!-- Add an image above each section -->
+    
+    <div class="drinks-box">
+        <div class="menu-details">
+            <h3>FRESH FRUIT JUICE</h3>
+        </div>
+        <div class="menu-list">
+            <!-- Avocado Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/avocado.png', 'AVOCADO JUICE', 'Fresh Avocado Juice')">
+                <div class="menu-details">
+                    <h3>AVOCADO JUICE</h3>
+                    <p>Fresh Avocado Juice</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Dragon Fruit Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/dragonfruit.png', 'DRAGON FRUIT JUICE', 'Fresh Dragon Fruit Juice')">
+                <div class="menu-details">
+                    <h3>DRAGON FRUIT JUICE</h3>
+                    <p>Fresh Dragon Fruit Juice</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Mango Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/mango.png', 'MANGO JUICE', 'Fresh Mango Juice')">
+                <div class="menu-details">
+                    <h3>MANGO JUICE</h3>
+                    <p>Fresh Mango Juice</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Kiwi Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/kiwi.png', 'KIWI JUICE', 'Fresh Kiwi Juice')">
+                <div class="menu-details">
+                    <h3>KIWI JUICE</h3>
+                    <p>Fresh Kiwi Juice</p>
+                    <span class="price">Rp.40.000</span>
+                                         <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Orange Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/orange.png', 'ORANGE JUICE', 'Fresh Orange Juice')">
+                <div class="menu-details">
+                    <h3>ORANGE JUICE</h3>
+                    <p>Fresh Orange Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Guava Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/guava.png', 'GUAVA JUICE', 'Fresh Guava Juice')">
+                <div class="menu-details">
+                    <h3>GUAVA JUICE</h3>
+                    <p>Fresh Guava Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Soursop Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/soursop.png', 'SOURSOP JUICE', 'Fresh Soursop Juice')">
+                <div class="menu-details">
+                    <h3>SOURSOP JUICE</h3>
+                    <p>Fresh Soursop Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Honeydew Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/honeydew.png', 'HONEYDEW JUICE', 'Fresh Honeydew Juice')">
+                <div class="menu-details">
+                    <h3>HONEYDEW JUICE</h3>
+                    <p>Fresh Honeydew Juice</p>
+                    <span class="price">Rp.35.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Watermelon Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/watermelon.png', 'WATERMELON JUICE', 'Fresh Watermelon Juice')">
+                <div class="menu-details">
+                    <h3>WATERMELON JUICE</h3>
+                    <p>Fresh Watermelon Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Strawberry Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry.png', 'STRAWBERRY JUICE', 'Fresh Strawberry Juice')">
+                <div class="menu-details">
+                    <h3>STRAWBERRY JUICE</h3>
+                    <p>Fresh Strawberry Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <!-- Papaya Juice -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/papaya.png', 'PAPAYA JUICE', 'Fresh Papaya Juice')">
+                <div class="menu-details">
+                    <h3>PAPAYA JUICE</h3>
+                    <p>Fresh Papaya Juice</p>
+                    <span class="price">Rp.30.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+            
+<div class="drinks-box">
+    <div class="menu-details">
+        <h3>FRESH VEGETABLE JUICE</h3>
+    </div>
+    <div class="menu-list">
+        <!-- Carrot Juice -->
+        <div class="menu-item" onclick="showPopup('assets/img/menu/carrot.png', 'CARROT JUICE', 'Fresh Carrot Juice')">
+            <div class="menu-details">
+                <h3>CARROT JUICE</h3>
+                <p>Fresh Carrot Juice</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <!-- Cucumber Juice -->
+        <div class="menu-item" onclick="showPopup('assets/img/menu/cucumber.png', 'CUCUMBER JUICE', 'Fresh Cucumber Juice')">
+            <div class="menu-details">
+                <h3>CUCUMBER JUICE</h3>
+                <p>Fresh Cucumber Juice</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <!-- Tomato Juice -->
+        <div class="menu-item" onclick="showPopup('assets/img/menu/tomato.png', 'TOMATO JUICE', 'Fresh Tomato Juice')">
+            <div class="menu-details">
+                <h3>TOMATO JUICE</h3>
+                <p>Fresh Tomato Juice</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+
+    <!-- Another image for Mixed Juice section -->
+    <div class="drinks-box">
+        <div class="menu-details">
+            <h3>MIXED JUICE</h3>
+        </div>
+        
+    <div class="menu-item" onclick="showPopup('assets/img/menu/mixed.png', 'MIXED JUICE', '(MAX 2 ITEM CHOICE)')">
+        <div class="menu-details">
+            <h3>MIXED JUICE</h3>
+            <p>(MAX 2 ITEM CHOICE)</p>
+            <div class="menu-list">
+            <span class="price">Rp.40.000</span>
+                                <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+
+
+
+    <h2>.</h2>
+    <h1 class="typing-loop">MILK DRINK</h1>
+    <h2>.</h2>
+    <div class="drinks-box">
+        <div class="menu-details">
+            <h3>MILK DRINK</h3>
+            <div class="menu-list">
+            <!-- Milk Drink Section -->
+            <div class="menu-item" onclick="showPopup('assets/img/menu/snowfall-orange.png', 'SNOWFALL ORANGE', 'Refreshing Orange Slush')">
+                <div class="menu-details">
+                    <h3>SNOWFALL ORANGE</h3>
+                    <p>Refreshing Orange Slush</p>
+                    <span class="price">Rp.35.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-choco-lava.png', 'STRAWBERRY CHOCO LAVA', 'Rich Strawberry & Chocolate Fusion')">
+                <div class="menu-details">
+                    <h3>STRAWBERRY CHOCO LAVA <span class="new-label">NEW</span></h3>
+                    <p>Rich Strawberry & Chocolate Fusion</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    
+            <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-creamy-mango.png', 'STRAWBERRY CREAMY MANGO', 'Creamy Mango & Strawberry Mix')">
+                <div class="menu-details">
+                    <h3>STRAWBERRY CREAMY MANGO <span class="new-label">NEW</span></h3>
+                    <p>Creamy Mango & Strawberry Mix</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+    </div>
+
+
+    <h2>.</h2>
+    <h1 class="typing-loop">TEA</h1>
+    <h2>.</h2>
+    
+    <!-- Hot Tea Section -->
+    <div class="drinks-box">
+        <div class="menu-details">
+            <h3>TEA</h3>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showPopup('assets/img/menu/english-breakfast.png', 'ENGLISH BREAKFAST', 'Classic English Black Tea')">
+                    <div class="menu-details">
+                        <h3>ENGLISH BREAKFAST</h3>
+                        <p>Classic English Black Tea</p>
+                        <span class="price">Rp.25.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/earl-grey.png', 'EARL GREY', 'Rich Earl Grey Tea')">
+                    <div class="menu-details">
+                        <h3>EARL GREY</h3>
+                        <p>Rich Earl Grey Tea</p>
+                        <span class="price">Rp.25.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/chamomile.png', 'CHAMOMILE', 'Calming Chamomile Tea')">
+                    <div class="menu-details">
+                        <h3>CHAMOMILE</h3>
+                        <p>Calming Chamomile Tea</p>
+                        <span class="price">Rp.25.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/peppermint.png', 'PEPPERMINT', 'Refreshing Peppermint Tea')">
+                    <div class="menu-details">
+                        <h3>PEPPERMINT</h3>
+                        <p>Refreshing Peppermint Tea</p>
+                        <span class="price">Rp.25.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/jasmine.png', 'JASMINE', 'Delicate Jasmine Tea')">
+                    <div class="menu-details">
+                        <h3>JASMINE</h3>
+                        <p>Delicate Jasmine Tea</p>
+                        <span class="price">Rp.25.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/hot-lemon-tea.png', 'HOT LEMON TEA', 'Warm Lemon Tea')">
+                    <div class="menu-details">
+                        <h3>HOT LEMON TEA</h3>
+                        <p>Warm Lemon Tea</p>
+                        <span class="price">Rp.30.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-tea.png', 'ICED TEA', 'Refreshing Iced Tea')">
+                    <div class="menu-details">
+                        <h3>ICED TEA</h3>
+                        <p>Refreshing Iced Tea</p>
+                        <span class="price">Rp.20.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lemon-tea.png', 'ICED LEMON TEA', 'Iced Lemon-Flavored Tea')">
+                    <div class="menu-details">
+                        <h3>ICED LEMON TEA</h3>
+                        <p>Iced Lemon-Flavored Tea</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lychee-tea.png', 'ICED LYCHEE TEA', 'Iced Tea with Lychee Flavor')">
+                    <div class="menu-details">
+                        <h3>ICED LYCHEE TEA</h3>
+                        <p>Iced Tea with Lychee Flavor</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-peach-tea.png', 'ICED PEACH TEA', 'Iced Tea with Peach Flavor')">
+                    <div class="menu-details">
+                        <h3>ICED PEACH TEA</h3>
+                        <p>Iced Tea with Peach Flavor</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+
+                <div class="menu-item" onclick="showPopup('assets/img/menu/hot-iced-tea-tarik.png', 'HOT / ICED TEA TARIK', 'Authentic Malaysian-style tea tarik')">
+                    <div class="menu-details">
+                        <h3>HOT / ICED TEA TARIK</h3>
+                        <p>Authentic Malaysian-style tea tarik</p>
+                        <span class="price">Rp.35.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                        <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- Iced Tea Section -->
+    <div class="drinks-box">
+        <div class="menu-details">
+            <h3>TEA ICED PITCHER</h3>
+            <div class="menu-list">
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-tea.png', 'ICED TEA', 'Refreshing Iced Tea')">
+                    <div class="menu-details">
+                        <h3>ICED TEA</h3>
+                        <p>Refreshing Iced Tea</p>
+                        <span class="price">Rp.60.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lemon-tea.png', 'ICED LEMON TEA', 'Iced Lemon-Flavored Tea')">
+                    <div class="menu-details">
+                        <h3>ICED LEMON TEA</h3>
+                        <p>Iced Lemon-Flavored Tea</p>
+                        <span class="price">Rp.65.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lychee-tea.png', 'ICED LYCHEE TEA', 'Iced Tea with Lychee Flavor')">
+                    <div class="menu-details">
+                        <h3>ICED LYCHEE TEA</h3>
+                        <p>Iced Tea with Lychee Flavor</p>
+                        <span class="price">Rp.65.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-peach-tea.png', 'ICED PEACH TEA', 'Iced Tea with Peach Flavor')">
+                    <div class="menu-details">
+                        <h3>ICED PEACH TEA</h3>
+                        <p>Iced Tea with Peach Flavor</p>
+                        <span class="price">Rp.65.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lemon-squash.png', 'ICED LEMON SQUASH', 'Refreshing Lemon Squash')">
+                    <div class="menu-details">
+                        <h3>ICED LEMON SQUASH</h3>
+                        <p>Refreshing Lemon Squash</p>
+                        <span class="price">Rp.70.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lime-squash.png', 'ICED LIME SQUASH', 'Zesty Lime Squash')">
+                    <div class="menu-details">
+                        <h3>ICED LIME SQUASH</h3>
+                        <p>Zesty Lime Squash</p>
+                        <span class="price">Rp.70.000</span>
+                                            <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+   
+<h2>.</h2>
+<h1 class="typing-loop">COFFEE</h1>
+<h2>.</h2>
+
+<!-- Hot Coffee Section -->
+<div class="drinks-box">
+    <div class="menu-details">
+        <h3>COFFEE</h3>
+        <div class="menu-list">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/regular-coffee.png', 'REGULAR COFFEE', 'A classic cup of regular coffee')">
+            <div class="menu-details">
+                <h3>REGULAR COFFEE</h3>
+                <p>A classic cup of regular coffee</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/single-espresso.png', 'SINGLE ESPRESSO', 'A single shot of strong espresso')">
+            <div class="menu-details">
+                <h3>SINGLE ESPRESSO</h3>
+                <p>A single shot of strong espresso</p>
+                <span class="price">Rp.20.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/double-espresso.png', 'DOUBLE ESPRESSO', 'A double shot of rich espresso')">
+            <div class="menu-details">
+                <h3>DOUBLE ESPRESSO</h3>
+                <p>A double shot of rich espresso</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/hot-cappuccino.png', 'HOT CAPPUCINO', 'A creamy hot cappuccino')">
+            <div class="menu-details">
+                <h3>HOT CAPPUCINO</h3>
+                <p>A creamy hot cappuccino</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/iced-coffee.png', 'ICED COFFEE', 'A chilled coffee refreshment')">
+            <div class="menu-details">
+                <h3>ICED COFFEE</h3>
+                <p>A chilled coffee refreshment</p>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/iced-cappuccino.png', 'ICED CAPPUCINO', 'A cool twist on cappuccino')">
+            <div class="menu-details">
+                <h3>ICED CAPPUCINO</h3>
+                <p>A cool twist on cappuccino</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/iced-latte.png', 'ICED LATTE', 'A refreshing iced latte')">
+            <div class="menu-details">
+                <h3>ICED LATTE</h3>
+                <p>A refreshing iced latte</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/hot-iced-chocolat.png', 'HOT OR ICED CHOCOLAT', 'Delicious hot or iced chocolate')">
+            <div class="menu-details">
+                <h3>HOT OR ICED CHOCOLAT</h3>
+                <p>Delicious hot or iced chocolate</p>
+                <span class="price">Rp.35.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+       
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/americano.png', 'AMERICANO', 'Smooth and bold Americano')">
+            <div class="menu-details">
+                <h3>AMERICANO</h3>
+                <p>Smooth and bold Americano</p>
+                <span class="price">Rp.30.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Iced Coffee Section -->
+<div class="drinks-box">
+    <div class="menu-details">
+        <h3>ICED COFFEE</h3>
+        <div class="menu-list">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/honeydew-coffee.png', 'HONEYDEW COFFEE', 'A refreshing honeydew flavor combined with coffee')">
+            <div class="menu-details">
+                <h3>HONEYDEW COFFEE <span class="new-label">NEW</span></h3>
+                <p>A refreshing honeydew flavor combined with coffee</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-coffee.png', 'STRAWBERRY COFFEE', 'Sweet strawberry flavor blended with coffee')">
+            <div class="menu-details">
+                <h3>STRAWBERRY COFFEE <span class="new-label">NEW</span></h3>
+                <p>Sweet strawberry flavor blended with coffee</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coco-latte-coffee.png', 'COCO LATTE COFFEE', 'A smooth coconut latte coffee')">
+            <div class="menu-details">
+                <h3>COCO LATTE COFFEE <span class="new-label">NEW</span></h3>
+                <p>A smooth coconut latte coffee</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/blast-coffee.png', 'BLAST COFFEE', 'A rich, bold coffee with a blast of flavor')">
+            <div class="menu-details">
+                <h3>BLAST COFFEE <span class="new-label">NEW</span></h3>
+                <p>A rich, bold coffee with a blast of flavor</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/caramel-latte.png', 'CARAMEL LATTE', 'Smooth caramel latte coffee')">
+            <div class="menu-details">
+                <h3>CARAMEL LATTE <span class="new-label">NEW</span></h3>
+                <p>Smooth caramel latte coffee</p>
+                <span class="price">Rp.25.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+        
+        <div class="menu-item" onclick="showPopup('assets/img/menu/affogato-ice-cream.png', 'AFFOGATO ICE CREAM', 'Delicious affogato with creamy ice cream')">
+            <div class="menu-details">
+                <h3>AFFOGATO ICE CREAM <span class="new-label">NEW</span></h3>
+                <p>Delicious affogato with creamy ice cream</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+       
+<h2>.</h2>
+<h1 class="typing-loop">MOCKTAIL</h1>
+<h2>.</h2>
+<div class=" drinks-box">
+    <div class="menu-details">
+        <h3>HEALTHY MOCKTAIL</h3>
+        <div class="menu-list">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/green-latte.png', 'GREEN LATTE', 'A refreshing green latte with smooth taste')">
+            <div class="menu-details">
+                <h3>GREEN LATTE</h3>
+                <p>A refreshing green latte with smooth taste</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/lychee-lemon-grass.png', 'LYCHEE LEMON GRASS', 'A zesty drink with lychee and lemon grass')">
+            <div class="menu-details">
+                <h3>LYCHEE LEMON GRASS</h3>
+                <p>A zesty drink with lychee and lemon grass</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/pineapple-pinky.png', 'PINEAPPLE PINKY', 'Sweet pineapple with a hint of pink flavor')">
+            <div class="menu-details">
+                <h3>PINEAPPLE PINKY</h3>
+                <p>Sweet pineapple with a hint of pink flavor</p>
+                <span class="price">Rp.39.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/virgin-strawberry.png', 'VIRGIN STRAWBERRY', 'Refreshing strawberry mocktail')">
+            <div class="menu-details">
+                <h3>VIRGIN STRAWBERRY</h3>
+                <p>Refreshing strawberry mocktail</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<h2>.</h2>
+
+<div class=" drinks-box">
+    <div class="menu-details">
+        <h3>SQUASH</h3>
+        <div class="menu-list">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lemon-squash.png', 'ICED LEMON SQUASH', 'A refreshing iced lemon squash drink')">
+            <div class="menu-details">
+                <h3>ICED LEMON SQUASH</h3>
+                <p>A refreshing iced lemon squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/iced-lime-squash.png', 'ICED LIME SQUASH', 'A tangy iced lime squash drink')">
+            <div class="menu-details">
+                <h3>ICED LIME SQUASH</h3>
+                <p>A tangy iced lime squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/kiwi-squash.png', 'KIWI SQUASH', 'A delicious kiwi squash drink')">
+            <div class="menu-details">
+                <h3>KIWI SQUASH</h3>
+                <p>A delicious kiwi squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/orange-squash.png', 'ORANGE SQUASH', 'A sweet and zesty orange squash drink')">
+            <div class="menu-details">
+                <h3>ORANGE SQUASH</h3>
+                <p>A sweet and zesty orange squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/lychee-squash.png', 'LYCHEE SQUASH', 'A refreshing lychee squash drink')">
+            <div class="menu-details">
+                <h3>LYCHEE SQUASH</h3>
+                <p>A refreshing lychee squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-squash.png', 'STRAWBERRY SQUASH', 'A sweet strawberry squash drink')">
+            <div class="menu-details">
+                <h3>STRAWBERRY SQUASH</h3>
+                <p>A sweet strawberry squash drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+           
+<h2>.</h2>
+
+<div class=" drinks-box">
+    <div class="menu-details">
+        <h3>MOCKTAIL</h3>
+        <div class="menu-list">
+        <div class="menu-item" onclick="showPopup('assets/img/menu/blue-dream.png', 'BLUE DREAM', 'A dreamy blue-colored drink with a unique flavor')">
+            <div class="menu-details">
+                <h3>BLUE DREAM</h3>
+                <p>A dreamy blue-colored drink with a unique flavor</p>
+                <span class="price">Rp.39.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/pinky-summer.png', 'PINKY SUMMER', 'A refreshing pink summer drink')">
+            <div class="menu-details">
+                <h3>PINKY SUMMER <span class="new-label">NEW</span></h3>
+                <p>A refreshing pink summer drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/vanila-mint.png', 'VANILA MINT', 'A cool and creamy vanilla mint drink')">
+            <div class="menu-details">
+                <h3>VANILLA MINT <span class="new-label">NEW</span></h3>
+                <p>A cool and creamy vanilla mint drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/honey-moon.png', 'HONEY MOON', 'A sweet and light honey-flavored drink')">
+            <div class="menu-details">
+                <h3>HONEY MOON <span class="new-label">NEW</span></h3>
+                <p>A sweet and light honey-flavored drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/purple-summer.png', 'PURPLE SUMMER', 'A vibrant purple summer drink')">
+            <div class="menu-details">
+                <h3>PURPLE SUMMER <span class="new-label">NEW</span></h3>
+                <p>A vibrant purple summer drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/coren-blitz.png', 'COREN BLITZ', 'A strong and bold flavored drink')">
+            <div class="menu-details">
+                <h3>COREN BLITZ <span class="new-label">NEW</span></h3>
+                <p>A strong and bold flavored drink</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+
+        <div class="menu-item" onclick="showPopup('assets/img/menu/blue-cruzh.png', 'BLUE CRUZH', 'A refreshing blue drink with a citrusy twist')">
+            <div class="menu-details">
+                <h3>BLUE CRUZH <span class="new-label">NEW</span></h3>
+                <p>A refreshing blue drink with a citrusy twist</p>
+                <span class="price">Rp.40.000</span>
+                                    <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<h2>.</h2>
+<h1 class="typing-loop">BEVERAGE</h1>
+<h2>.</h2>
+
+<!-- Section Traditional Drink -->
+<div class="drinks-box">
+    <div class="menu-details">
+        <h3>TRADITIONAL DRINK</h3>
+        <div class="menu-list">
+            <div class="menu-item" onclick="showPopup('assets/img/menu/hot-iced-chocolate.png', 'HOT / ICED CHOCOLATE', 'Rich hot or iced chocolate drink')">
+                <div class="menu-details">
+                    <h3>HOT / ICED CHOCOLATE</h3>
+                    <p>Rich hot or iced chocolate drink</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+          
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/bandrek.png', 'BANDREK', 'Traditional Indonesian spiced ginger drink')">
+                <div class="menu-details">
+                    <h3>BANDREK</h3>
+                    <p>Traditional Indonesian spiced ginger drink</p>
+                    <span class="price">Rp.35.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/bajigur.png', 'BAJIGUR', 'Warm coconut milk and ginger drink')">
+                <div class="menu-details">
+                    <h3>BAJIGUR</h3>
+                    <p>Warm coconut milk and ginger drink</p>
+                    <span class="price">Rp.35.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/jahe-merah.png', 'JAHE MERAH', 'Indonesian red ginger drink')">
+                <div class="menu-details">
+                    <h3>JAHE MERAH</h3>
+                    <p>Indonesian red ginger drink</p>
+                    <span class="price">Rp.25.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<!-- Section Soft Drink -->
+<div class="drinks-box">
+    <div class="menu-details">
+        <h3>SOFT DRINK</h3>
+        <div class="menu-list">
+            <div class="menu-item" onclick="showPopup('assets/img/menu/coca-cola.png', 'COCA COLA', 'Classic Coca Cola soft drink')">
+                <div class="menu-details">
+                    <h3>COCA COLA</h3>
+                    <p>Classic Coca Cola soft drink</p>
+                    <span class="price">Rp.20.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/fanta.png', 'FANTA', 'Refreshing Fanta soft drink')">
+                <div class="menu-details">
+                    <h3>FANTA</h3>
+                    <p>Refreshing Fanta soft drink</p>
+                    <span class="price">Rp.20.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/sprite.png', 'SPRITE', 'Crisp and clean Sprite soft drink')">
+                <div class="menu-details">
+                    <h3>SPRITE</h3>
+                    <p>Crisp and clean Sprite soft drink</p>
+                    <span class="price">Rp.20.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/mineral-water.png', 'MINERAL WATER', 'Pure mineral water')">
+                <div class="menu-details">
+                    <h3>MINERAL WATER</h3>
+                    <p>Pure mineral water</p>
+                    <span class="price">Rp.15.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<!-- Section Shake Delight & Smoothies Delight -->
+<div class=" drinks-box">
+    <div class="menu-details">
+        <h3>SHAKE DELIGHT & SMOOTHIES DELIGHT</h3>
+        <div class="menu-list">
+            <div class="menu-item" onclick="showPopup('assets/img/menu/chocolate-shake.png', 'CHOCOLATE SHAKE DELIGHT', 'Delicious chocolate shake')">
+                <div class="menu-details">
+                    <h3>CHOCOLATE SHAKE DELIGHT</h3>
+                    <p>Delicious chocolate shake</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/vanila-shake.png', 'VANILLA SHAKE DELIGHT', 'Creamy vanilla shake')">
+                <div class="menu-details">
+                    <h3>VANILLA SHAKE DELIGHT</h3>
+                    <p>Creamy vanilla shake</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-shake.png', 'STRAWBERRY SHAKE DELIGHT', 'Refreshing strawberry shake')">
+                <div class="menu-details">
+                    <h3>STRAWBERRY SHAKE DELIGHT</h3>
+                    <p>Refreshing strawberry shake</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/chocolate-smoothies.png', 'CHOCOLATE SMOOTHIES', 'Rich chocolate smoothies')">
+                <div class="menu-details">
+                    <h3>CHOCOLATE SMOOTHIES</h3>
+                    <p>Rich chocolate smoothies</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/vanila-smoothies.png', 'VANILLA SMOOTHIES', 'Creamy vanilla smoothies')">
+                <div class="menu-details">
+                    <h3>VANILLA SMOOTHIES</h3>
+                    <p>Creamy vanilla smoothies</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+            
+            <div class="menu-item" onclick="showPopup('assets/img/menu/strawberry-smoothies.png', 'STRAWBERRY SMOOTHIES', 'Fresh strawberry smoothies')">
+                <div class="menu-details">
+                    <h3>STRAWBERRY SMOOTHIES</h3>
+                    <p>Fresh strawberry smoothies</p>
+                    <span class="price">Rp.40.000</span>
+                                        <span class="exclude-tax">Exclude tax & service charge</span>
+                    <span class="exclude-tax">Additional 10% charge for room service.</span>
+                </div>
+            </div>
+    </div>
+</div>
+</div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="cancel" onclick="closePopup()">&times;</span>
+        <img id="popupImage" src="" alt="" class="popup-image">
+        <h3 id="popupTitle"></h3>
+        <p id="popupDescription"></p>
+        <button class="cancel-button" onclick="closePopup()">Kembali</button>
+    </div>
+</div>
+
+        </div>
+    </section>
+    
+    
+        </div>
+    </div>
+</section>
+
+<div id="buttonContainer" class="floating-button">
+    <button id="pesanLink" onclick="redirectToPage()">Pesan Sekarang</button>
+</div>
+
+
+    <footer>
+        <p>&copy; 2024 Hotel DailyInn. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const placeholderTexts = ["Soto", "Spaghetti", "Salad", "Pizza", "Nasi Goreng"];
+   
+        let currentChar = 0;
+    
+        function typeAnimation() {
+            let currentText = placeholderTexts[currentIndex];
+            searchInput.placeholder = currentText.substring(0, currentChar);
+    
+            if (currentChar < currentText.length) {
+                currentChar++;
+            } else {
+                // Pause for a while before deleting the text
+                setTimeout(() => {
+                    currentChar = 0;
+                    currentIndex = (currentIndex + 1) % placeholderTexts.length;
+                }, 1000);
+            }
+    
+            setTimeout(typeAnimation, 150); // Speed of typing effect
+        }
+    
+        typeAnimation();
+    </script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+      
+</body>
+</html>
