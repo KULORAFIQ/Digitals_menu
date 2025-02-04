@@ -1,36 +1,80 @@
 let totalHargaMakanan = 0;
 let food = [
     {
-        name: `Rawon`,
+        name: 'Rawon',
         harga: 20000,
         kategori: 'makanan',
         image: './assets/img/menu/rawon.jpg'
     },
     {
-        name: `Soto Betawi`,
+        name: 'Soto Betawi',
         harga: 60000,
         kategori: 'makanan',
         image: './assets/img/menu/sotobetawi.jpg'
     },
     {
-        name: `Krupuk`,
+        name: 'Krupuk',
         harga: 2500,
         kategori: 'makanan',
         image: './assets/img/menu/kerupuk_putih.jpg'
     },
     {
-        name: `Telur Asin`,
+        name: 'Telur Asin',
         harga: 70000,
         kategori: 'makanan',
         image: './assets/img/menu/telor_asin.jpg'
     },
     {
-        name: `Es Teh Manis`,
+        name: 'Es Teh Manis',
         harga: 20000,
         kategori: 'minuman',
         image: './assets/img/menu/es_teh_manis.jpg'
+    },
+    // Starter food items as part of makanan
+    {
+        name: 'CHEF SALAD',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/chef salad.png',
+        description: 'Lettuce, Tomato, Cucumber, Smoke Beef, Boiled Egg Wedges, Cheese Served, With Thousand Island Sauce.'
+    },
+    {
+        name: 'NICOISE TUNA SALAD',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/tuna.png',
+        description: 'Lettuce, Tomato, Cucumber, String Bean, Cube Potato, Tuna Chunk Served With Vinaigrette Dressing.'
+    },
+    {
+        name: 'CHICKEN SALAD',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/chic.png',
+        description: 'Lettuce, Tomato, Smoked Chicken, Onion, Crouton Served With Thousand Island Sauce.'
+    },
+    {
+        name: 'GADO-GADO',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/gado.png',
+        description: 'Boiled Mix Vegetables, Fried Bean Cake, Fried Tofu, Boiled Egg Served Peanut Sauce.'
+    },
+    {
+        name: 'VEGETABLES SALAD',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/coming.png',
+        description: 'Broccoli, Carrot, Cauliflower, String Bean, Tomato, Lettuce Ice Berg Served with Italian Dressing and Garlic Bread.'
+    },
+    {
+        name: 'FRUIT SALAD',
+        harga: 35000,
+        kategori: 'starter',
+        image: './assets/img/menu/coming.png',
+        description: 'Pineapple, Papaya, Honey Dew, Served with Honey Mayo, Raisin, and Cheese.'
     }
 ];
+
 
 let cart = [];
 let pembelian = [];
@@ -145,8 +189,6 @@ function orderFood() {
 }
 
 
-
-
 // Function to generate the dynamic data for both food list and cart
 function generateData() {
     const foodList = document.getElementById('foodList');
@@ -159,6 +201,9 @@ function generateData() {
 
     const minumanList = document.createElement('div');
     minumanList.innerHTML = '<h2>Minuman</h2>';
+
+    const starterList = document.createElement('div');
+    starterList.innerHTML = '<h2>starter</h2>';
 
     // Loop over the food items and create a visual representation
     food.forEach((item, index) => {
@@ -189,12 +234,15 @@ function generateData() {
 
         if (item.kategori === 'makanan') {
             makananList.appendChild(divCard);
-        } else if (item.kategori === 'minuman') {
+        } else if (item.kategori === 'starter') {
+            starterList.appendChild(divCard);
+        }else if (item.kategori === 'minuman') {
             minumanList.appendChild(divCard);
         }
     });
 
     foodList.appendChild(makananList);
+    foodList.appendChild(starterList);
     foodList.appendChild(minumanList);
 
     // Display the cart content if there are any items
