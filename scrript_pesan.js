@@ -324,5 +324,52 @@ function generateData() {
     cartList.appendChild(divbutton);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const sidebar = document.querySelector(".sidebar");
+    const toggleBtn = document.createElement("div");
+    toggleBtn.classList.add("toggle-btn");
+    toggleBtn.innerText = "☰";
+    sidebar.appendChild(toggleBtn);
+  
+    // Minimize & Expand
+    toggleBtn.addEventListener("click", function () {
+      sidebar.classList.toggle("minimized");
+      toggleBtn.innerText = sidebar.classList.contains("minimized") ? "▲" : "▼";
+    });
+  
+    // Drag Sidebar
+    let isDragging = false;
+    let offsetX, offsetY;
+  
+    sidebar.addEventListener("mousedown", function (e) {
+      isDragging = true;
+      offsetX = e.clientX - sidebar.getBoundingClientRect().left;
+      offsetY = e.clientY - sidebar.getBoundingClientRect().top;
+      sidebar.style.transition = "none"; // Hapus animasi agar smooth saat drag
+    });
+  
+    document.addEventListener("mousemove", function (e) {
+      if (isDragging) {
+        let x = e.clientX - offsetX;
+        let y = e.clientY - offsetY;
+  
+        // Batas layar agar sidebar tidak keluar
+        let maxX = window.innerWidth - sidebar.offsetWidth;
+        let maxY = window.innerHeight - sidebar.offsetHeight;
+        x = Math.max(0, Math.min(x, maxX));
+        y = Math.max(0, Math.min(y, maxY));
+  
+        sidebar.style.left = x + "px";
+        sidebar.style.top = y + "px";
+      }
+    });
+  
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+      sidebar.style.transition = "transform 0.3s ease"; // Kembalikan animasi
+    });
+  });
+  
+
 // Initial call to display the food items and cart
 generateData();
