@@ -337,37 +337,48 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleBtn.innerText = sidebar.classList.contains("minimized") ? "▲" : "▼";
     });
   
-    // Drag Sidebar
+    // Drag Sidebar (Mendukung Mouse & Touchscreen)
     let isDragging = false;
     let offsetX, offsetY;
   
-    sidebar.addEventListener("mousedown", function (e) {
+    function startDrag(e) {
       isDragging = true;
-      offsetX = e.clientX - sidebar.getBoundingClientRect().left;
-      offsetY = e.clientY - sidebar.getBoundingClientRect().top;
-      sidebar.style.transition = "none"; // Hapus animasi agar smooth saat drag
-    });
+      let touch = e.type.startsWith("touch") ? e.touches[0] : e;
+      offsetX = touch.clientX - sidebar.getBoundingClientRect().left;
+      offsetY = touch.clientY - sidebar.getBoundingClientRect().top;
+      sidebar.style.transition = "none"; // Hapus animasi agar drag smooth
+    }
   
-    document.addEventListener("mousemove", function (e) {
-      if (isDragging) {
-        let x = e.clientX - offsetX;
-        let y = e.clientY - offsetY;
+    function onDrag(e) {
+      if (!isDragging) return;
+      let touch = e.type.startsWith("touch") ? e.touches[0] : e;
+      let x = touch.clientX - offsetX;
+      let y = touch.clientY - offsetY;
   
-        // Batas layar agar sidebar tidak keluar
-        let maxX = window.innerWidth - sidebar.offsetWidth;
-        let maxY = window.innerHeight - sidebar.offsetHeight;
-        x = Math.max(0, Math.min(x, maxX));
-        y = Math.max(0, Math.min(y, maxY));
+      // Batasi agar sidebar tidak keluar layar
+      let maxX = window.innerWidth - sidebar.offsetWidth;
+      let maxY = window.innerHeight - sidebar.offsetHeight;
+      x = Math.max(0, Math.min(x, maxX));
+      y = Math.max(0, Math.min(y, maxY));
   
-        sidebar.style.left = x + "px";
-        sidebar.style.top = y + "px";
-      }
-    });
+      sidebar.style.left = x + "px";
+      sidebar.style.top = y + "px";
+    }
   
-    document.addEventListener("mouseup", function () {
+    function endDrag() {
       isDragging = false;
       sidebar.style.transition = "transform 0.3s ease"; // Kembalikan animasi
-    });
+    }
+  
+    // Event untuk Mouse
+    sidebar.addEventListener("mousedown", startDrag);
+    document.addEventListener("mousemove", onDrag);
+    document.addEventListener("mouseup", endDrag);
+  
+    // Event untuk Touchscreen (Mobile)
+    sidebar.addEventListener("touchstart", startDrag);
+    document.addEventListener("touchmove", onDrag);
+    document.addEventListener("touchend", endDrag);
   });
   
 
